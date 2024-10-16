@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures consistent box model */
+    color: white;
+}
+/* Additional styling */
+.form-container {
+    border: 1px solid #ced4da;
+    padding: 20px;
+    border-radius: 5px;
+}
+.form-section {
+    display: none; /* Hide all sections by default */
+}
+b{
+    color: black;
+    font-size: 20px;
+}
+.navbar-nav{
+    cursor: pointer;
+
+}
+.navbar-nav:hover{
+    cursor: pointer;
+    color: red;
+    font-size: 17px;
+}

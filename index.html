@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Ensures consistent box model */
+        color: white;
+    }
+    body {
+        background-image: url("image/img_4.png");
+        background-size: cover; /* Ensures the image covers the entire background */
+        background-repeat: no-repeat; /* Prevents the image from repeating */
+        background-position: center; /* Centers the image */
+        min-height: 100vh; /* Ensures the body takes up at least the full height of the viewport */
+    }
+    /* Additional styling */
+    .form-container {
+        border: 1px solid #ced4da;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .form-section {
+        display: none; /* Hide all sections by default */
+    }
+    b{
+        color: black;
+        font-size: 20px;
+    }
+    .navbar-nav{
+        cursor: pointer;
+
+    }
+    .navbar-nav:hover{
+        cursor: pointer;
+        color: red;
+        font-size: 17px;
+    }
+
+</style>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><b> My Coffe Shoppe</b> </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#" onclick="showSection('customer')">Customer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" onclick="showSection('item')">Item</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <!-- Customer Form Section -->
+    <div class="form-section" id="customerSection">
+        <h2>Customer Form</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form id="customerForm">
+                        <div class="form-group">
+                            <label for="customerId">ID</label>
+                            <input type="text" class="form-control" id="customerId" placeholder="Enter ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerName">Name</label>
+                            <input type="text" class="form-control" id="customerName" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerAddress">Address</label>
+                            <input type="text" class="form-control" id="customerAddress" placeholder="Enter Address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerSalary">Salary</label>
+                            <input type="number" class="form-control" id="customerSalary" placeholder="Enter Salary" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Customer Table</h2>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Salary</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                    <!-- Dynamic rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Item Form Section -->
+    <div class="form-section" id="itemSection">
+        <h2>Item Form</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form id="itemForm">
+                        <div class="form-group">
+                            <label for="itemCode">Code</label>
+                            <input type="text" class="form-control" id="itemCode" placeholder="Enter Item Code" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemName">Name</label>
+                            <input type="text" class="form-control" id="itemName" placeholder="Enter Item Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemQuantity">Quantity</label>
+                            <input type="number" class="form-control" id="itemQuantity" placeholder="Enter Quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="itemPrice">Price</label>
+                            <input type="number" class="form-control" id="itemPrice" placeholder="Enter Price" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h2>Item Table</h2>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="itemTableBody">
+                    <!-- Dynamic rows will be added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="../js/main.js"></script>
+
+</body>
+</html>
