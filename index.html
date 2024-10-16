@@ -264,8 +264,26 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Order Summary</h5>
-                    <p>Total Items: <span id="totalItems">0</span></p>
-                    <p>Total Cost: <span id="totalCost">0.00</span></p>
+                    <p>Total : <span id="totalItems">00.00</span></p>
+                    <p>Sub Total: <span id="totalCost">00.00</span></p>
+                    <div class="row">
+                        <!-- Second row: cash discount -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Cash:</label>
+                            <input type="text" class="form-control" id="cash" placeholder="5000.00" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Discount:</label>
+                            <input type="text" class="form-control" id="discount"  placeholder="10%" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Third row: total balance-->
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-bold">Balance:</label>
+                            <input type="text" class="form-control" id="balance" required>
+                        </div>
+                    </div>
                     <button class="btn btn-success" onclick="placeOrder()">Place Order</button>
                 </div>
             </div>
