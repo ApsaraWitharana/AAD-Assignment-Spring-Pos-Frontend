@@ -190,7 +190,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Customer ID:</label>
                                     <select class="form-control" id="custId"  name="customer" placeholder="C00-001" id="cusIdOption">
-                                        <option>C00-000</option>
+                                        <option>CUS-000</option>
                                     </select>
                                 </div>
                             </div>
@@ -224,8 +224,37 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Item Details</h5>
-                    <p class="card-text">Add items to the order.</p>
-                    <input type="number" id="qty" class="form-control mt-2" placeholder="Enter Quantity">
+                    <div class="row">
+                        <!-- First row: Item code and name -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Item Code:</label>
+                            <select class="form-control" id="itCode"  name="customer" placeholder="ITM-001" >
+                                <option>ITM-000</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Item Name:</label>
+                            <input type="text" class="form-control" id="itName" placeholder="Apple" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Second row: Price qty -->
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Item Price:</label>
+                            <input type="text" class="form-control" id="itPrice" placeholder="300.00" disabled>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">QtyOnHand:</label>
+                            <input type="text" class="form-control" id="QtyOn" disabled>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Third row: Order qty-->
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label fw-bold">Qty:</label>
+                            <input type="number" class="form-control" id="Qty" required>
+                        </div>
+                    </div>
                     <button class="btn btn-primary mt-2" onclick="addItemToOrder()">Add Item</button>
                 </div>
             </div>
