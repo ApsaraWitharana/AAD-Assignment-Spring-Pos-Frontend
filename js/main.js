@@ -13,7 +13,7 @@ function showSection(section) {
         customerSection.style.display = 'none';
         itemSection.style.display = 'block';
         orderSection.style.display = 'none';
-    }else if (section == 'order'){
+    }else if (section === 'order'){
         customerSection.style.display = 'none';
         itemSection.style.display = 'none';
         orderSection.style.display = 'block';
