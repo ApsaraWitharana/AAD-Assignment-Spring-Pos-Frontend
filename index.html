@@ -189,14 +189,16 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Customer ID:</label>
-                                    <input type="text" class="form-control" id="custId" required>
+                                    <select class="form-control" id="custId"  name="customer" placeholder="C00-001" id="cusIdOption">
+                                        <option>C00-000</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row">
                                 <!-- Second row: Customer Name and Date -->
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Customer Name:</label>
-                                    <input type="text" class="form-control" id="custName" required>
+                                    <input type="text" class="form-control" id="custName" placeholder="Sachini" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Date:</label>
@@ -223,9 +225,6 @@
                 <div class="card-body">
                     <h5 class="card-title">Item Details</h5>
                     <p class="card-text">Add items to the order.</p>
-                    <select id="itemSelect" class="form-control">
-                        <!-- Dynamic item options will be added here -->
-                    </select>
                     <input type="number" id="qty" class="form-control mt-2" placeholder="Enter Quantity">
                     <button class="btn btn-primary mt-2" onclick="addItemToOrder()">Add Item</button>
                 </div>
