@@ -2,13 +2,21 @@
 function showSection(section) {
     const customerSection = document.getElementById('customerSection');
     const itemSection = document.getElementById('itemSection');
+    const orderSection = document.getElementById('orderSection');
+
 
     if (section === 'customer') {
         customerSection.style.display = 'block';
         itemSection.style.display = 'none';
+        orderSection.style.display = 'none';
     } else if (section === 'item') {
         customerSection.style.display = 'none';
         itemSection.style.display = 'block';
+        orderSection.style.display = 'none';
+    }else if (section == 'order'){
+        customerSection.style.display = 'none';
+        itemSection.style.display = 'none';
+        orderSection.style.display = 'block';
     }
 }
 
@@ -47,6 +55,9 @@ document.getElementById('itemForm').addEventListener('submit', function (event) 
 // JavaScript to handle customer form submission and table actions
 document.getElementById('customerForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
+
+    // Clear form fields
+    document.getElementById('orderSection').reset();
 
     // Get form values
     const id = document.getElementById('customerId').value;
@@ -92,4 +103,38 @@ function updateRow(button) {
 
     // Remove the row after populating form for editing
     deleteRow(button);
+}
+
+
+let orderItems = [];
+let totalItemsCount = 0;
+let totalCostAmount = 0;
+
+function addItemToOrder() {
+    const itemSelect = document.getElementById("itemSelect");
+    const quantity = document.getElementById("itemQuantity").value;
+    const selectedItem = itemSelect.options[itemSelect.selectedIndex].text;
+
+    if (selectedItem && quantity > 0) {
+        const itemPrice = 10; // Example static price for now, replace with real data
+        const totalForItem = itemPrice * quantity;
+
+        orderItems.push({ item: selectedItem, quantity, total: totalForItem });
+        totalItemsCount += parseInt(quantity);
+        totalCostAmount += totalForItem;
+
+        document.getElementById("totalItems").innerText = totalItemsCount;
+        document.getElementById("totalCost").innerText = totalCostAmount.toFixed(2);
+    }
+}
+
+function placeOrder() {
+    // Submit the order to the backend and reset the form
+    orderItems = [];
+    totalItemsCount = 0;
+    totalCostAmount = 0;
+
+    document.getElementById("totalItems").innerText = totalItemsCount;
+    document.getElementById("totalCost").innerText = totalCostAmount.toFixed(2);
+    alert("Order placed successfully!");
 }

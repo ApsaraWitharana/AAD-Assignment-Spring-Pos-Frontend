@@ -44,6 +44,9 @@
         color: red;
         font-size: 17px;
     }
+    p,h5{
+        color: black;
+    }
 
 </style>
 <body>
@@ -63,7 +66,7 @@
                 <a class="nav-link" href="#" onclick="showSection('item')">Item</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Order</a>
+                <a class="nav-link" href="#"  onclick="showSection('order')">Order</a>
             </li>
         </ul>
     </div>
@@ -140,7 +143,7 @@
                             <label for="itemPrice">Price</label>
                             <input type="number" class="form-control" id="itemPrice" placeholder="Enter Price" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>
             </div>
@@ -163,7 +166,72 @@
             </div>
         </div>
     </div>
+
+
+<!-- Add this after the Item Form Section -->
+<div class="form-section" id="orderSection">
+    <h2>Order Form</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Customer Details</h5>
+                    <div class="form-group">
+
+                        <label for="itemQuantity">QTY</label>
+                        <input type="number" class="form-control" id="orderQty" placeholder="Enter Quantity" required>
+                    </div>
+                    <select id="customerSelect" class="form-control">
+                        <!-- Dynamic customer options will be added here -->
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Item Details</h5>
+                    <p class="card-text">Add items to the order.</p>
+                    <select id="itemSelect" class="form-control">
+                        <!-- Dynamic item options will be added here -->
+                    </select>
+                    <input type="number" id="itemQuantity" class="form-control mt-2" placeholder="Enter Quantity">
+                    <button class="btn btn-primary mt-2" onclick="addItemToOrder()">Add Item</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Summary</h5>
+                    <p>Total Items: <span id="totalItems">0</span></p>
+                    <p>Total Cost: <span id="totalCost">0.00</span></p>
+                    <button class="btn btn-success" onclick="placeOrder()">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Order Table</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="orderTableBody">
+        <!-- Dynamic rows will be added here -->
+        </tbody>
+    </table>
 </div>
+</div>
+
 <!-- Bootstrap JS and dependencies -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
