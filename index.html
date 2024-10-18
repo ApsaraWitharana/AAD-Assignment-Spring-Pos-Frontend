@@ -51,6 +51,30 @@
         color: black;
     }
 
+    a{
+        color: black;
+    }
+
+    /* Style the Log Out button */
+    #log {
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 18px;
+        padding: 8px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Hover effect for the button */
+    #log:hover {
+        background-color: darkgreen;
+        transform: scale(1.1);
+    }
+
+
+
 </style>
 <body>
 
@@ -70,6 +94,27 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"  onclick="showSection('order')">Order</a>
+            </li>
+        </ul>
+    </div>
+    <!-- Profile Picture, Date/Time, and Logout Section -->
+    <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+            <!-- Profile Picture -->
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <img src="image/alina.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px;">
+                </a>
+            </li>
+
+            <!-- Date/Time Display -->
+            <li class="nav-item">
+                <b><a class="nav-link" id="datetime"></a></b>
+            </li>
+
+            <!-- Log Out -->
+            <li class="nav-item active">
+                <a href="#" class="nav-link"><i class="fas fa-door-open"></i><button id="log">Log Out </button></a>
             </li>
         </ul>
     </div>
