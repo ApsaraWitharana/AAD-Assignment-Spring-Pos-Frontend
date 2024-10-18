@@ -105,6 +105,30 @@ function updateRow(button) {
     deleteRow(button);
 }
 
+//customer//
+function updateRow(button) {
+    // Get the row containing the customer data
+    const row = button.closest('tr');
+    const cells = row.getElementsByTagName('td');
+
+    // Extract data from the row
+    const id = row.cells[0].textContent;
+    const name = row.cells[1].textContent;
+    const address = row.cells[2].textContent;
+    const salary = row.cells[3].textContent;
+
+    // Set the data in the input fields
+    document.getElementById('customerId').value = id;
+    document.getElementById('customerName').value = name;
+    document.getElementById('customerAddress').value = address;
+    document.getElementById('customerSalary').value = salary;
+
+
+    // Show the update button (or you can toggle its visibility)
+    // document.getElementById('updateCustomerBtn').style.display = 'block';
+}
+
+
 
 let orderItems = [];
 let totalItemsCount = 0;
