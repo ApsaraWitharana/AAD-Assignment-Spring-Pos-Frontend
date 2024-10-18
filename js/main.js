@@ -85,10 +85,10 @@ document.getElementById('itemForm').addEventListener('submit', function (event) 
 // });
 
 // Function to delete a row
-function deleteRow(button) {
-    const row = button.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-}
+// function deleteRow(button) {
+//     const row = button.parentNode.parentNode;
+//     row.parentNode.removeChild(row);
+// }
 
 // Function to update a row (basic implementation)
 function updateRow(button) {
@@ -106,27 +106,27 @@ function updateRow(button) {
 }
 
 //customer//
-function updateRow(button) {
-    // Get the row containing the customer data
-    const row = button.closest('tr');
-    const cells = row.getElementsByTagName('td');
-
-    // Extract data from the row
-    const id = row.cells[0].textContent;
-    const name = row.cells[1].textContent;
-    const address = row.cells[2].textContent;
-    const salary = row.cells[3].textContent;
-
-    // Set the data in the input fields
-    document.getElementById('customerId').value = id;
-    document.getElementById('customerName').value = name;
-    document.getElementById('customerAddress').value = address;
-    document.getElementById('customerSalary').value = salary;
-
-
-    // Show the update button (or you can toggle its visibility)
-    // document.getElementById('updateCustomerBtn').style.display = 'block';
-}
+// function updateRow(button) {
+//     // Get the row containing the customer data
+//     const row = button.closest('tr');
+//     const cells = row.getElementsByTagName('td');
+//
+//     // Extract data from the row
+//     const id = row.cells[0].textContent;
+//     const name = row.cells[1].textContent;
+//     const address = row.cells[2].textContent;
+//     const salary = row.cells[3].textContent;
+//
+//     // Set the data in the input fields
+//     document.getElementById('customerId').value = id;
+//     document.getElementById('customerName').value = name;
+//     document.getElementById('customerAddress').value = address;
+//     document.getElementById('customerSalary').value = salary;
+//
+//
+//     // Show the update button (or you can toggle its visibility)
+//     // document.getElementById('updateCustomerBtn').style.display = 'block';
+// }
 
 
 
