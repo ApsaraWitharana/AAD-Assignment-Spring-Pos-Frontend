@@ -53,36 +53,36 @@ document.getElementById('itemForm').addEventListener('submit', function (event) 
 });
 
 // JavaScript to handle customer form submission and table actions
-document.getElementById('customerForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form submission
-
-    // Clear form fields
-    document.getElementById('orderSection').reset();
-
-    // Get form values
-    const id = document.getElementById('customerId').value;
-    const name = document.getElementById('customerName').value;
-    const address = document.getElementById('customerAddress').value;
-    const salary = document.getElementById('customerSalary').value;
-
-    // Add row to the customer table
-    const tableBody = document.getElementById('customerTableBody');
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-            <td>${id}</td>
-            <td>${name}</td>
-            <td>${address}</td>
-            <td>${salary}</td>
-            <td>
-                <button class="btn btn-warning btn-sm" onclick="updateRow(this)">Update</button>
-                <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
-            </td>
-        `;
-    tableBody.appendChild(newRow);
-
-    // Clear form fields
-    document.getElementById('customerForm').reset();
-});
+// document.getElementById('customerForm').addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent form submission
+//
+//     // Clear form fields
+//     document.getElementById('orderSection').reset();
+//
+//     // Get form values
+//     const id = document.getElementById('customerId').value;
+//     const name = document.getElementById('customerName').value;
+//     const address = document.getElementById('customerAddress').value;
+//     const salary = document.getElementById('customerSalary').value;
+//
+//     // Add row to the customer table
+//     const tableBody = document.getElementById('customerTableBody');
+//     const newRow = document.createElement('tr');
+//     newRow.innerHTML = `
+//             <td>${id}</td>
+//             <td>${name}</td>
+//             <td>${address}</td>
+//             <td>${salary}</td>
+//             <td>
+//                 <button class="btn btn-warning btn-sm" onclick="updateRow(this)">Update</button>
+//                 <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+//             </td>
+//         `;
+//     tableBody.appendChild(newRow);
+//
+//     // Clear form fields
+//     document.getElementById('customerForm').reset();
+// });
 
 // Function to delete a row
 function deleteRow(button) {
@@ -139,8 +139,7 @@ function placeOrder() {
     alert("Order placed successfully!");
 }
 
-//
-<!-- JavaScript to show Date and Time -->
+// <!-- JavaScript to show Date and Time -->
 function updateDateTime() {
     const now = new Date();
     const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
