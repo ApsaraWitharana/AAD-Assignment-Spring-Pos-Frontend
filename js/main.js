@@ -24,33 +24,33 @@ function showSection(section) {
 showSection('customer');
 
 // JavaScript to handle form submissions and table actions
-document.getElementById('itemForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent form submission
-
-    // Get form values
-    const code = document.getElementById('itemCode').value;
-    const name = document.getElementById('itemName').value;
-    const quantity = document.getElementById('itemQuantity').value;
-    const price = document.getElementById('itemPrice').value;
-
-    // Add row to the item table
-    const tableBody = document.getElementById('itemTableBody');
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-            <td>${code}</td>
-            <td>${name}</td>
-            <td>${quantity}</td>
-            <td>${price}</td>
-            <td>
-                <button class="btn btn-warning btn-sm" onclick="updateRow(this)">Update</button>
-                <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
-            </td>
-        `;
-    tableBody.appendChild(newRow);
-
-    // Clear form fields
-    document.getElementById('itemForm').reset();
-});
+// document.getElementById('itemForm').addEventListener('submit', function (event) {
+//     event.preventDefault(); // Prevent form submission
+//
+//     // Get form values
+//     const code = document.getElementById('itemCode').value;
+//     const name = document.getElementById('itemName').value;
+//     const quantity = document.getElementById('itemQuantity').value;
+//     const price = document.getElementById('itemPrice').value;
+//
+//     // Add row to the item table
+//     const tableBody = document.getElementById('itemTableBody');
+//     const newRow = document.createElement('tr');
+//     newRow.innerHTML = `
+//             <td>${code}</td>
+//             <td>${name}</td>
+//             <td>${quantity}</td>
+//             <td>${price}</td>
+//             <td>
+//                 <button class="btn btn-warning btn-sm" onclick="updateRow(this)">Update</button>
+//                 <button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>
+//             </td>
+//         `;
+//     tableBody.appendChild(newRow);
+//
+//     // Clear form fields
+//     document.getElementById('itemForm').reset();
+// });
 
 // JavaScript to handle customer form submission and table actions
 // document.getElementById('customerForm').addEventListener('submit', function (event) {

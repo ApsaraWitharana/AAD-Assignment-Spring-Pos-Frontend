@@ -74,12 +74,13 @@ function getAllCustomer() {
                     <td>${customer.name}</td>
                     <td>${customer.address}</td>
                     <td>${customer.salary}</td>
-                    <td>
+                    <td class="button-column">
                         <button class="btn btn-warning btn-sm" onclick="editRow(this, '${customer.id}')">Update</button>
                         <button class="btn btn-danger btn-sm" onclick="deleteRow('${customer.id}', this)">Delete</button>
                     </td>
                 `;
                 tableBody.appendChild(newRow);
+                document.getElementById('customerForm').reset();
             });
         },
         error: function(xhr, status, error) {
@@ -91,19 +92,17 @@ function getAllCustomer() {
 // =================== Edit customer row ===================
 function editRow(button, customerId) {
     isUpdateMode = true; // Switch to update mode
-    selectedRow = button.closest('tr'); // Get the row for future update
+    currentCustomerId = customerId;
 
-    // Retrieve customer data from the row
-    let id = selectedRow.cells[0].innerHTML;
-    let name = selectedRow.cells[1].innerHTML;
-    let address = selectedRow.cells[2].innerHTML;
-    let salary = selectedRow.cells[3].innerHTML;
+    // Fetch the customer data from the row
+    let row = button.parentElement.parentElement;
+    let cells = row.getElementsByTagName('td'); // Get the row for future update
 
-    // Set the data in the form
-    $('#customerId').val(id);
-    $('#customerName').val(name);
-    $('#customerAddress').val(address);
-    $('#customerSalary').val(salary);
+    // Populate the form fields
+    $('#customerId').val(cells[0].innerText);
+    $('#customerName').val(cells[1].innerText);
+    $('#customerAddress').val(cells[2].innerText);
+    $('#customerSalary').val(cells[3].innerText);
 }
 
 // =================== Update customer =====================
@@ -135,16 +134,12 @@ function updateCustomer() {
                     icon: 'success',
                     confirmButtonText: 'OK'
                 }).then(() => {
-                    // Update the row directly
-                    selectedRow.cells[0].innerHTML = custObj.id;
-                    selectedRow.cells[1].innerHTML = custObj.name;
-                    selectedRow.cells[2].innerHTML = custObj.address;
-                    selectedRow.cells[3].innerHTML = custObj.salary;
-
-                    // Reset form and switch off update mode
-                    $('#customerForm')[0].reset();
-                    isUpdateMode = false;
-                    selectedRow = null;
+                    getAllCustomer(); // Reload all customers
+                    $('#customerId').val('');
+                    $('#customerName').val('');
+                    $('#customerAddress').val('');
+                    $('#customerSalary').val('');
+                    isUpdateMode = false; // Switch back to save mode
                 });
             }
         },
@@ -175,10 +170,16 @@ function deleteRow(customerId, button) {
                 icon: 'success',
                 confirmButtonText: 'OK'
             }).then(() => {
-                button.closest('tr').remove(); // Remove the row from the table
+                // Remove the row from the table
+                let row = button.parentElement.parentElement;
+                row.remove();
             });
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log("Error Status: " + jqXHR.status);
+            console.log("Response Text: " + jqXHR.responseText);
+            console.log("Error Thrown: " + errorThrown);
+
             Swal.fire({
                 title: 'Error!',
                 text: 'Failed to delete customer.',
