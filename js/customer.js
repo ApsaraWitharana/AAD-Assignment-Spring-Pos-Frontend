@@ -5,7 +5,7 @@ $("#onActionSave").click(function (){
     if (isUpdateMode){
         updateCustomer();
     } else {
-        saveCustomer();
+        //saveCustomer();
     }
 });
 

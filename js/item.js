@@ -1,10 +1,13 @@
 let isUpdateItemMode = false;
+let currentItemCode = ''; // Store the current item code for update
+
     $("#onActionItemSave").click(function () {
         if (isUpdateItemMode) {
             updateItem();
-        } else {
-            saveItem();
         }
+        // else {
+        //     //saveItem();
+        // }
     });
 
     // Fetch all items when the page loads
@@ -39,9 +42,9 @@ let isUpdateItemMode = false;
                         icon: 'success',
                         confirmButtonText: 'OK'
                     });
-                    getAllItems();
-                    clearForm();
                 }
+                getAllItems();
+                clearForm();
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Error Status: " + jqXHR.status);
@@ -166,9 +169,6 @@ function updateItem() {
                    tableBody.appendChild(newRow);
                    document.getElementById('itemForm').reset();
                });
-
-                // let itemTableBody = $('#itemTableBody');
-                // itemTableBody.empty();
 
             },
             error: function(xhr, status, error) {

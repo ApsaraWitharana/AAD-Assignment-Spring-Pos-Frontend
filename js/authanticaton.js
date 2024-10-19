@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
             auth.signInWithEmailAndPassword(email, password)
                 .then((userCredential) => {
-                    window.location.href = "/index.html?";
+                    window.location.href = "../Spring-Pos-Fronend/index.html?";
                     // Login successful
                     alert("Login Successful!!!");
                     const user = userCredential.user;
