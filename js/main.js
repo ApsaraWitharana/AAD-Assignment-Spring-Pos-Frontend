@@ -91,19 +91,19 @@ showSection('customer');
 // }
 
 // Function to update a row (basic implementation)
-function updateRow(button) {
-    const row = button.parentNode.parentNode;
-    const cells = row.getElementsByTagName('td');
-
-    // Populate form fields with current row data for editing
-    document.getElementById('itemCode').value = cells[0].innerText;
-    document.getElementById('itemName').value = cells[1].innerText;
-    document.getElementById('itemQuantity').value = cells[2].innerText;
-    document.getElementById('itemPrice').value = cells[3].innerText;
-
-    // Remove the row after populating form for editing
-    deleteRow(button);
-}
+// function updateRow(button) {
+//     const row = button.parentNode.parentNode;
+//     const cells = row.getElementsByTagName('td');
+//
+//     // Populate form fields with current row data for editing
+//     document.getElementById('itemCode').value = cells[0].innerText;
+//     document.getElementById('itemName').value = cells[1].innerText;
+//     document.getElementById('itemQuantity').value = cells[2].innerText;
+//     document.getElementById('itemPrice').value = cells[3].innerText;
+//
+//     // Remove the row after populating form for editing
+//     deleteRow(button);
+// }
 
 //customer//
 // function updateRow(button) {
@@ -130,45 +130,45 @@ function updateRow(button) {
 
 
 
-let orderItems = [];
-let totalItemsCount = 0;
-let totalCostAmount = 0;
-
-function addItemToOrder() {
-    const itemSelect = document.getElementById("itemSelect");
-    const quantity = document.getElementById("itemQuantity").value;
-    const selectedItem = itemSelect.options[itemSelect.selectedIndex].text;
-
-    if (selectedItem && quantity > 0) {
-        const itemPrice = 10; // Example static price for now, replace with real data
-        const totalForItem = itemPrice * quantity;
-
-        orderItems.push({ item: selectedItem, quantity, total: totalForItem });
-        totalItemsCount += parseInt(quantity);
-        totalCostAmount += totalForItem;
-
-        document.getElementById("totalItems").innerText = totalItemsCount;
-        document.getElementById("totalCost").innerText = totalCostAmount.toFixed(2);
-    }
-}
-
-function placeOrder() {
-    // Submit the order to the backend and reset the form
-    orderItems = [];
-    totalItemsCount = 0;
-    totalCostAmount = 0;
-
-    document.getElementById("totalItems").innerText = totalItemsCount;
-    document.getElementById("totalCost").innerText = totalCostAmount.toFixed(2);
-    alert("Order placed successfully!");
-}
-
-// <!-- JavaScript to show Date and Time -->
-function updateDateTime() {
-    const now = new Date();
-    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-    const datetimeString = now.toLocaleDateString('en-US', options);
-    document.getElementById('datetime').textContent = datetimeString;
-}
-
-setInterval(updateDateTime, 1000); // Update every second
+// let orderItems = [];
+// let totalItemsCount = 0;
+// let totalCostAmount = 0;
+//
+// function addItemToOrder() {
+//     const itemSelect = document.getElementById("itemSelect");
+//     const quantity = document.getElementById("itemQuantity").value;
+//     const selectedItem = itemSelect.options[itemSelect.selectedIndex].text;
+//
+//     if (selectedItem && quantity > 0) {
+//         const itemPrice = 10; // Example static price for now, replace with real data
+//         const totalForItem = itemPrice * quantity;
+//
+//         orderItems.push({ item: selectedItem, quantity, total: totalForItem });
+//         totalItemsCount += parseInt(quantity);
+//         totalCostAmount += totalForItem;
+//
+//         document.getElementById("totalItems").innerText = totalItemsCount;
+//         document.getElementById("totalCost").innerText = totalCostAmount.toFixed(2);
+//     }
+// }
+//
+// function placeOrder() {
+//     // Submit the order to the backend and reset the form
+//     orderItems = [];
+//     totalItemsCount = 0;
+//     totalCostAmount = 0;
+//
+//     document.getElementById("totalItems").innerText = totalItemsCount;
+//     document.getElementById("totalCost").innerText = totalCostAmount.toFixed(2);
+//     alert("Order placed successfully!");
+// }
+//
+// // <!-- JavaScript to show Date and Time -->
+// function updateDateTime() {
+//     const now = new Date();
+//     const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+//     const datetimeString = now.toLocaleDateString('en-US', options);
+//     document.getElementById('datetime').textContent = datetimeString;
+// }
+//
+// setInterval(updateDateTime, 1000); // Update every second

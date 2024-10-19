@@ -82,7 +82,9 @@
     .fw-bold{
         color: black;
     }
-
+    option{
+        background-color: black;
+    }
 </style>
 <body>
 
@@ -238,7 +240,7 @@
                                 <!-- First row: Customer ID and Order ID -->
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Order ID:</label>
-                                    <input type="text" class="form-control" id="orderId" disabled>
+                                    <input type="text" class="form-control" id="orderId" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Customer ID:</label>
@@ -251,7 +253,7 @@
                                 <!-- Second row: Customer Name and Date -->
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Customer Name:</label>
-                                    <input type="text" class="form-control" id="custName" placeholder="Sachini" required>
+                                    <input type="text" class="form-control" id="custName" placeholder="Sachini" disabled>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label fw-bold">Date:</label>
@@ -281,13 +283,13 @@
                         <!-- First row: Item code and name -->
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-bold">Item Code:</label>
-                            <select class="form-control" id="itCode"  name="customer" placeholder="ITM-001" >
+                            <select class="form-control" id="itCode"  name="customer" placeholder="ITM-001">
                                 <option>ITM-000</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label class="form-label fw-bold">Item Name:</label>
-                            <input type="text" class="form-control" id="itName" placeholder="Apple" required>
+                            <input type="text" class="form-control" id="itName" placeholder="Apple" disabled>
                         </div>
                     </div>
                     <div class="row">
@@ -317,8 +319,8 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Order Summary</h5>
-                    <p>Total : <span id="totalItems">00.00</span></p>
-                    <p>Sub Total: <span id="totalCost">00.00</span></p>
+<!--                    <p>Total Items: <span id="totalItems"></span><label>0</label></p> &lt;!&ndash; Updated Total Items &ndash;&gt;-->
+<!--                    <p>Sub Total: <span id="totalCost"></span><label>0.00</label></p> &lt;!&ndash; Updated Subtotal &ndash;&gt;-->
                     <div class="row">
                         <!-- Second row: cash discount -->
                         <div class="col-md-6 mb-3">
@@ -348,8 +350,10 @@
         <thead>
         <tr>
             <th>Order ID</th>
-            <th>Customer</th>
             <th>Date</th>
+            <th>Item Name</th>
+            <th>qty</th>
+            <th>UnitPrice</th>
             <th>Total</th>
             <th>Actions</th>
         </tr>
@@ -363,9 +367,10 @@
 
 <!-- Bootstrap JS and dependencies -->
 
-<script src="../js/json.js"></script>
+<script src="../js/customer.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/item.js"></script>
+<script src="../js/order.js"></script>
 
 </body>
 </html>
