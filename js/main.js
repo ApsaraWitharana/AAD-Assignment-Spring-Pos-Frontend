@@ -163,12 +163,12 @@ showSection('customer');
 //     alert("Order placed successfully!");
 // }
 //
-// // <!-- JavaScript to show Date and Time -->
-// function updateDateTime() {
-//     const now = new Date();
-//     const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-//     const datetimeString = now.toLocaleDateString('en-US', options);
-//     document.getElementById('datetime').textContent = datetimeString;
-// }
-//
-// setInterval(updateDateTime, 1000); // Update every second
+// <!-- JavaScript to show Date and Time -->
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    const datetimeString = now.toLocaleDateString('en-US', options);
+    document.getElementById('datetime').textContent = datetimeString;
+}
+
+setInterval(updateDateTime, 1000); // Update every second
